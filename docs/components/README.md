@@ -1,6 +1,6 @@
 # Components
 
-So far, you've seen the `name` and`data` options for a component. We will discuss in this section all the others.
+So far, you've seen the `name` and `data` options for a component. We will discuss in this section all the others.
 
 ## Methods
 
@@ -67,7 +67,7 @@ To distinguish the use cases of computed vs watcher, we will privilege most ofte
 
 ## Component Lifecycle
 
-Vue follows a pattern when working with components, from their creation to their destruction through data updates and DOM insertion. Here is the complete diagram :
+Vue follows a pattern when working with components, from their creation to their destruction through data updates and DOM insertion. Here is the complete diagram:
 
 ![Vue Lifecycle](../assets/lifecycle.png)
 
@@ -146,7 +146,7 @@ export default {
 
 Although a child component can technically access its parent component, it is a bad practice because it induces a tight coupling between the components: the component loses in genericity, it is more difficult to reuse and the risk of infinite loop is higher.
 
-Child components communicate with their parents by using **events**: they emit events that propagate from parent to parent, in the same way as DOM events like a mouse click. **A good component is agnostic of his environment**, it does not know his parents and does not know if the events it emets will ever be intercepted (or "listened to").
+Child components communicate with their parents by using **events**: they emit events that propagate from parent to parent, in the same way as DOM events like a mouse click. **A good component is agnostic of his environment**, it does not know his parents and does not know if the events it emits will ever be intercepted (or "listened to").
 
 To **emit** an event, use the `$emit` method available in all Vue components. It takes as parameter the name of the event, and optionally a value (_payload_) to transmit. If you need to pass multiple values, encapsulate them in an object.
 
@@ -288,10 +288,10 @@ export default {
 - `vm.$delete`: unassign a property while ensuring reactivity
 - `vm.$on`: declare programmatically an event listener
 - `vm.$once`: declare a listener with modifier `once`
-- `vm.$off`: removes an event listener
-- `vm.$emit`: emets an event
+- `vm.$off`: remove an event listener
+- `vm.$emit`: emit an event
 - `vm.$mount`: bind the component to a DOM element
-- `vm.$destroy`: destroys the component instance
+- `vm.$destroy`: destroy the component instance
 - `vm.$forceUpdate`: force complete update of the component (_not recommended_)
 - `vm.$nextTick`: report a function call to next tick in the event loop
 
@@ -304,7 +304,7 @@ export default {
 <template>
   <div id="search-film">
     <form>
-      <label for="search">Search :</label>
+      <label for="search">Search:</label>
       <input id="search" type="text" />
     </form>
 
@@ -318,10 +318,10 @@ export default {
 3. Insert this `SearchFilm` component alongside `LoginForm` in `App.vue` and move the data and other associated options in the child components to reduce the size of `App` code.
 4. Display the `SearchFilm` component only if the user is logged in.
 
-**Question**: In your opinion, what difficulties could you encounter when using the `loggedIn` variable in more than one component at a time ?
+**Question**: In your opinion, what difficulties could you encounter when using the `loggedIn` variable in more than one component at a time?
 
 5. Assign the `films` variable to an empty `[]` array initially. When submitting the search form, run a `searchFilms` method that will put the 3 sample movies in this list.
-6. **Bonus**: In the `searchFilms` method, instead of putting all the movies at once in`this.films`, try to assign them one by one in this way:
+6. **Bonus**: In the `searchFilms` method, instead of putting all the movies at once in `this.films`, try to assign them one by one in this way:
 
 ```js
 this.films[0] = { title: 'Titanic', released: '19 Dec 1997', ... }
@@ -329,4 +329,4 @@ this.films[1] = { title: 'Blade Runner', ... }
 this.films[2] = ...
 ```
 
-**Question**: _Why does the view no longer update while the list appears to be filled correctly ?_
+**Question**: _Why does the view no longer update while the list appears to be filled correctly?_
